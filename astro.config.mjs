@@ -6,7 +6,5 @@ export default defineConfig({
   integrations: [tailwind(), react()],
   site: "https://ImLeosky.github.io",
   base: "/Portfolio/",
-  vite: {
-    base: "/Portfolio/",
-  },
+  trailingSlash: "always",
 });
