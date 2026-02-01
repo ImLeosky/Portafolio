@@ -1,0 +1,65 @@
+---
+// Asegúrate de que esta ruta sea correcta según donde creaste el archivo 1
+import BentoItem from "./bento/BentoItem.astro";
+import Terminal from "./react/Terminal.jsx";
+import TechStack from "./react/TechStack.jsx";
+import DataChart from "./react/DataChart.jsx";
+---
+
+<section class="w-full max-w-7xl mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold mb-8 text-white">Stack</h2>
+
+    <!-- GRID LAYOUT -->
+    <div class="grid grid-cols-1 md:grid-cols-4 auto-rows-[300px] gap-4">
+        <!-- Tarjeta 1: Backend (Grande) -->
+        <BentoItem
+            class="md:col-span-2"
+            title="Backend"
+            subtitle="Node.js & Arquitectura"
+        >
+            <!-- Usamos slot="content" para meter la terminal dentro de la tarjeta -->
+            <div slot="content" class="w-full h-full p-4">
+                <Terminal client:visible />
+            </div>
+        </BentoItem>
+
+        <!-- Tarjeta 2: Frontend (Pequeña) -->
+        <BentoItem
+            class="md:col-span-1"
+            title="Frontend"
+            subtitle="React & Astro"
+        >
+            <div slot="content" class="w-full h-full bg-blue-500/10"></div>
+        </BentoItem>
+
+        <!-- Tarjeta 3: Data (Pequeña) -->
+        <BentoItem
+            class="md:col-span-1"
+            title="Data & Analytics"
+            subtitle="Insights en tiempo real"
+        >
+            <div slot="content" class="w-full h-full">
+                <DataChart client:visible />
+            </div>
+        </BentoItem>
+
+        <!-- Tarjeta 4: Stack (Larga) -->
+        <BentoItem
+            class="md:col-span-4"
+            title="Full Stack"
+            subtitle="Versatilidad"
+        >
+            <div slot="content" class="w-full h-full bg-green-500/10"></div>
+        </BentoItem>
+
+        <BentoItem
+            class="md:col-span-4"
+            title="Full Stack"
+            subtitle="Versatilidad Tecnológica"
+        >
+            <div slot="content" class="w-full h-full">
+                <TechStack client:only="react" />
+            </div>
+        </BentoItem>
+    </div>
+</section>

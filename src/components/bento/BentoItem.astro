@@ -1,0 +1,43 @@
+---
+interface Props {
+    class?: string; // Para el tamaño (col-span-2, etc.)
+    title: string;
+    subtitle?: string;
+}
+
+const { title, subtitle, class: className } = Astro.props;
+---
+
+<article
+    class={`
+    ${className}
+    col-span-1
+    relative rounded-xl 
+    backdrop-blur-md 
+    border border-white/10 
+    bg-slate-900/50 
+    overflow-hidden
+    group
+    hover:scale-[1.02] transition-all duration-300 ease-in-out
+    h-full
+  `}
+>
+    <!-- Gradiente de fondo (efecto visual) -->
+    <div
+        class="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"
+    >
+    </div>
+
+    <!-- Contenido: Título y Subtítulo -->
+    <div
+        class="relative z-20 h-full flex flex-col justify-end p-6 select-none pointer-events-none"
+    >
+        <h3 class="text-xl font-bold text-slate-100 mb-1">{title}</h3>
+        {subtitle && <p class="text-slate-400 text-sm">{subtitle}</p>}
+    </div>
+
+    <!-- SLOT: Aquí es donde se inyecta el contenido (Terminal, Gráficos, etc) -->
+    <div class="absolute inset-0 z-10">
+        <slot name="content" />
+    </div>
+</article>
