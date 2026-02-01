@@ -13,7 +13,7 @@ export default function Hero() {
                 className="mb-4"
             >
                 <span className="bg-green-500/10 text-green-300 border border-green-500/20 px-3 py-1 rounded-full text-sm font-medium">
-                    🟢 Disponible para trabajar
+                    🟢 Evaluando ofertas...
                 </span>
             </motion.div>
 
